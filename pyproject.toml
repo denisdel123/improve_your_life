@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "improve-your-life"
+version = "0.1.0"
+description = ""
+authors = ["denisbelenko <denisdel123@>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.6"
+celery = "^5.4.0"
+redis = "^5.0.4"
+psycopg2 = "^2.9.9"
+ipython = "^8.25.0"
+
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^1.0.1"
+flake8 = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
