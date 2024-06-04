@@ -1,9 +1,18 @@
+from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from UserApp.models import User
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
+    password1 = serializers.CharField(
+        write_only=True,
+        required=True,
+        validators=[validate_password]
+    )
+    password2 = serializers.CharField(write_only=True, required=True)
+
     class Meta:
         model = User
         fields = ["email", "password1", "password2"]
@@ -22,3 +31,11 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
+class UserListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = "__all__"
+
