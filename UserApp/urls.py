@@ -13,7 +13,7 @@ urlpatterns = [
     path('list/', UserListAPIView.as_view(), name="user-list"),
     path('retrieve/<int:pk>/', UserRetrieveAPIView.as_view(), name="user-retrieve"),
 
-    # urls token
+    # token urls
     path('token/', TokenObtainPairView.as_view(permission_classes=(AllowAny,)), name='access-token'),
     path('token/refresh/', TokenRefreshView.as_view(permission_classes=(AllowAny,)), name='token-refresh'),
 ]
