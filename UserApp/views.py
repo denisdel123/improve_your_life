@@ -1,10 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-
-
 from UserApp.models import User
-from UserApp.permissions import IsOwner
 from UserApp.serializers import UserRegistrationSerializer, UserListSerializer
 
 

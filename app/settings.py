@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'UserApp',
+    'habitApp',
     'rest_framework_simplejwt',
     'rest_framework',
 
