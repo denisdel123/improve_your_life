@@ -21,7 +21,7 @@ class HabitSerializer(serializers.ModelSerializer):
 
             if data['associated_habit'] is not None and data['reward'] is not None:
                 raise serializers.ValidationError(
-                    "You cannot select both a linked habit and a reward at the same time.")
+                    "Вы не можете выбрать вознаграждение и связную привычку одновременно")
 
         return data
 
@@ -35,4 +35,7 @@ class HabitSerializer(serializers.ModelSerializer):
         if value and not value.is_nice_habit:
             raise serializers.ValidationError("Только приятные привычки могут быть связными")
         return value
+
+
+
 
