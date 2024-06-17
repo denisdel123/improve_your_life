@@ -1,3 +1,5 @@
+
+
 NULLABLE = {
     'null': True,
     'blank': True
@@ -13,3 +15,4 @@ DAYS = [
     ('sunday', 'Воскресенье'),
     ('daily', 'Каждый день'),
 ]
+
