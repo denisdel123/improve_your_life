@@ -5,6 +5,8 @@ from habitApp.models import Habit
 
 
 class HabitSerializer(serializers.ModelSerializer):
+    validator = []
+
     class Meta:
         model = Habit
         exclude = ['owner']
@@ -35,7 +37,3 @@ class HabitSerializer(serializers.ModelSerializer):
         if value and not value.is_nice_habit:
             raise serializers.ValidationError("Только приятные привычки могут быть связными")
         return value
-
-
-
-

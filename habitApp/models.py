@@ -16,9 +16,10 @@ class Habit(models.Model):
         verbose_name='Место действия',
         help_text='Укажите место выполнение действия'
     )
-    at_action = models.DateTimeField(
+    at_action = models.TimeField(
         verbose_name='Время действия',
-        help_text='укажите в какое время выполнять действие'
+        help_text='укажите в какое время выполнять действие',
+        default='09:00:00'
     )
     action = models.CharField(
         max_length=50,
@@ -58,3 +59,10 @@ class Habit(models.Model):
         verbose_name='Признак публичности',
         help_text='отметьте если хотите сделать привычку публичной'
     )
+
+    def __str__(self):
+        return f"Я буду в {self.action} в {self.at_action} в {self.place}"
+
+    class Meta:
+        verbose_name = 'Привычка'
+        verbose_name_plural = 'Привычки'
