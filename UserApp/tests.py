@@ -46,7 +46,7 @@ class UserTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         # Проверяем, что в ответе присутствует сообщение об ошибке валидации пароля
-        self.assertIn('"Пароль не совпадает!"', response.content.decode())
+        self.assertIn("Пароль не совпадает!", response.content.decode())
 
         url = reverse('usersApp:user-create')
         data = {

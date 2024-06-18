@@ -48,7 +48,8 @@ class Habit(models.Model):
     reward = models.CharField(
         max_length=100,
         verbose_name='Вознаграждение',
-        help_text='укажите вознаграждение'
+        help_text='укажите вознаграждение',
+        **NULLABLE
     )
     time_to_complete = models.TimeField(
         verbose_name='Время на выполнение действия',
@@ -61,7 +62,7 @@ class Habit(models.Model):
     )
 
     def __str__(self):
-        return f"Я буду в {self.action} в {self.at_action} в {self.place}"
+        return f"Я буду {self.action} в {self.at_action} в {self.place}"
 
     class Meta:
         verbose_name = 'Привычка'
