@@ -1,5 +1,7 @@
 from rest_framework.pagination import PageNumberPagination
 
+"""Пагинация для вывода списка"""
+
 
 class CustomPagination(PageNumberPagination):
     page_size = 5

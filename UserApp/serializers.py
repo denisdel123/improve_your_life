@@ -1,8 +1,8 @@
 from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
 from UserApp.models import User
+
+"""Сериализатор для создания пользователя."""
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -33,9 +33,10 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         return user
 
 
-class UserListSerializer(serializers.ModelSerializer):
+"""Сериализатор для вывода информации о пользователе."""
 
+
+class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
-
