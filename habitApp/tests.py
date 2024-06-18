@@ -139,6 +139,7 @@ class HabitTestCase(APITestCase):
         )
 
     def test_list_habit(self):
+        """Тестирование эндпоинта вывода привычек пользователя."""
         url = reverse("habitApp:habit-list")
 
         response = self.client.get(url)
@@ -152,6 +153,7 @@ class HabitTestCase(APITestCase):
         )
 
     def test_list_public_habit(self):
+        """Тестирование эндпоинта вывода публичных привычек."""
         url = reverse("habitApp:habit-list-public")
         response = self.client.get(url)
 
@@ -163,6 +165,7 @@ class HabitTestCase(APITestCase):
         )
 
     def test_update_habit(self):
+        """Тестирование эндпоинта изменения привычки."""
         url = reverse("habitApp:habit-update", args=(self.habit_nice.pk,))
         data = {
             "place": "Джакарта"
@@ -180,6 +183,7 @@ class HabitTestCase(APITestCase):
         )
 
     def test_destroy_habit(self):
+        """Тестирование эндпоинта удаления привычки."""
         url = reverse("habitApp:habit-destroy", args=(self.habit_nice.pk,))
 
         response = self.client.delete(url)

@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'habitApp',
     'rest_framework_simplejwt',
     'django_celery_beat',
+    'drf_yasg',
+    "corsheaders",
     'rest_framework',
 
 ]
@@ -62,6 +64,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -149,6 +153,7 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
 # Настройка для токена
@@ -180,3 +185,12 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": timedelta(seconds=10),
     },
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "https://read-only.example.com",
+    "https://read-and-write.example.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://read-and-write.example.com",
+]
