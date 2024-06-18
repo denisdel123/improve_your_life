@@ -1,9 +1,8 @@
-import os
-
 from django.core.management import BaseCommand
-
 from UserApp.models import User
 from app.settings import EMAIL_SUPERUSER_ENV, PASSWORD_SUPERUSER_ENV
+
+"""Кастомная команда для создания профиля администратора."""
 
 
 class Command(BaseCommand):

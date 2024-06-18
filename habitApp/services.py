@@ -1,5 +1,7 @@
 import requests
 
+"""Интеграция телеграмм для рассылки напоминаний пользователям"""
+
 
 def send_message(token, chat_id, message):  # Функция интеграции с Телеграмм
     url = f"https://api.telegram.org/bot{token}/sendMessage"

@@ -5,6 +5,8 @@ from django.utils import timezone
 from habitApp.models import Habit
 from habitApp.services import send_message
 
+"""Задача celery для напоминания по телеграмм о запланированных привычках."""
+
 
 @shared_task
 def send_notification():  # Функция отправки уведомления
@@ -27,4 +29,3 @@ def send_notification():  # Функция отправки уведомлени
                     chat_id=habit.owner.chat_id,
                     message=message
                 )
-

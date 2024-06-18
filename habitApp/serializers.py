@@ -3,13 +3,16 @@ from datetime import time
 from rest_framework import serializers
 from habitApp.models import Habit
 
+"""Сериализатор для всех эндпоинтов модели habit"""
+
 
 class HabitSerializer(serializers.ModelSerializer):
-    validator = []
 
     class Meta:
         model = Habit
         exclude = ['owner']
+
+    """Валидации для создания корректно заполненной привычки."""
 
     def validate(self, data):
         is_nice_habit = data.get('is_nice_habit')

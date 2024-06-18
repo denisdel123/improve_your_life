@@ -1,5 +1,7 @@
 from rest_framework import permissions
 
+"""Проверка на собственника"""
+
 
 class IsOwnerHabit(permissions.BasePermission):
 

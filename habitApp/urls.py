@@ -6,7 +6,7 @@ from habitApp.views import CreateHabitAPIView, ListOwnerHabitAPIView, ListPublic
 
 app_name = HabitappConfig.name
 urlpatterns = [
-
+    # urls для работы с CRUD для модели habit
     path('create/', CreateHabitAPIView.as_view(), name='habit-create'),
     path('list/', ListOwnerHabitAPIView.as_view(), name='habit-list'),
     path('list/public/', ListPublicHabitAPIView.as_view(), name='habit-list-public'),
