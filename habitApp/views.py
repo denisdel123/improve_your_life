@@ -10,10 +10,7 @@ from habitApp.serializers import HabitSerializer
 
 class CreateHabitAPIView(generics.CreateAPIView):
     serializer_class = HabitSerializer
-
-    def get_permissions(self):
-        permissions = [IsAuthenticated]
-        return (permission() for permission in permissions)
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -52,10 +49,7 @@ class ListPublicHabitAPIView(generics.ListAPIView):
 class UpdateHabitAPIView(generics.UpdateAPIView):
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
-
-    def get_permissions(self):
-        self.permission_classes = [IsAuthenticated, IsAdminUser | IsOwnerHabit]
-        return super().get_permissions()
+    permission_classes = [IsAuthenticated, IsAdminUser | IsOwnerHabit]
 
 
 """Эндпоинт для удаления привычки."""
@@ -63,7 +57,4 @@ class UpdateHabitAPIView(generics.UpdateAPIView):
 
 class DestroyHabitAPIView(generics.DestroyAPIView):
     queryset = Habit.objects.all()
-
-    def get_permissions(self):
-        self.permission_classes = [IsAuthenticated, IsAdminUser | IsOwnerHabit]
-        return super().get_permissions()
+    permission_classes = [IsAuthenticated, IsAdminUser | IsOwnerHabit]

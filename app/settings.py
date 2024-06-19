@@ -23,6 +23,8 @@ NAME_BD_ENV = os.environ.get("NAME_BD")
 PORT_DB_ENV = os.environ.get("PORT_BD")
 EMAIL_SUPERUSER_ENV = os.environ.get('EMAIL_SUPERUSER')
 PASSWORD_SUPERUSER_ENV = os.environ.get('PASSWORD_SUPERUSER')
+CELERY_BROKER_URL_ENV = os.environ.get("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND_ENV = os.environ.get("CELERY_RESULT_BACKEND")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -168,10 +170,10 @@ SIMPLE_JWT = {
 # Настройки для Celery
 
 # URL-адрес брокера сообщений
-CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = CELERY_BROKER_URL_ENV
 
 # URL-адрес брокера результатов, также Redis
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = CELERY_RESULT_BACKEND_ENV
 
 # Часовой пояс для работы Celery
 CELERY_TIMEZONE = "Asia/Ho_Chi_Minh"
