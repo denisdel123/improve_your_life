@@ -18,7 +18,9 @@ from dotenv import load_dotenv
 load_dotenv()
 SECRET_KEY_ENV = os.environ.get("SECRET_KEY")
 PASSWORD_BD_ENV = os.environ.get("PASSWORD_BD")
+USER_BD_ENV = os.environ.get("USER_BD")
 NAME_BD_ENV = os.environ.get("NAME_BD")
+PORT_DB_ENV = os.environ.get("PORT_BD")
 EMAIL_SUPERUSER_ENV = os.environ.get('EMAIL_SUPERUSER')
 PASSWORD_SUPERUSER_ENV = os.environ.get('PASSWORD_SUPERUSER')
 
@@ -34,7 +36,7 @@ SECRET_KEY = SECRET_KEY_ENV
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -94,8 +96,9 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'habits',
-        'USER': NAME_BD_ENV,
+        'NAME': NAME_BD_ENV,
+        'USER': USER_BD_ENV,
+        'PORT': PORT_DB_ENV,
         'PASSWORD': PASSWORD_BD_ENV,
     }
 }
