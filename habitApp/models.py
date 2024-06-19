@@ -51,7 +51,7 @@ class Habit(models.Model):
         help_text='укажите вознаграждение',
         **NULLABLE
     )
-    time_to_complete = models.TimeField(
+    time_to_complete = models.DurationField(
         verbose_name='Время на выполнение действия',
         help_text='укажите сколько понадобится времени на выполнение действия (максимальное время 2 минуты)'
     )

@@ -16,3 +16,4 @@ class Command(BaseCommand):
         )
 
         user.set_password(PASSWORD_SUPERUSER_ENV)
+        user.save()
