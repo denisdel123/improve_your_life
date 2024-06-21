@@ -5,7 +5,7 @@ RUN pip install --upgrade pip && pip install poetry
 
 ENV POETRY_VERSION=1.1.12
 
-WORKDIR / code
+WORKDIR /code
 
 COPY pyproject.toml poetry.lock ./
 
