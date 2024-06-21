@@ -47,5 +47,49 @@
   * не имеет связной привычки так как она сама используется как связная привычка
   * не имеет вознаграждения так как она сама заменяет вознаграждение
 
+# Docker 
+## Требования
+
+Убедитесь, что на вашей системе установлены следующие компоненты:
+- Docker
+- Docker Compose
+- redis
+- celery
+
+## Установка и настройка Docker
+
+### Установка Docker
+
+Следуйте официальной документации для установки Docker:
+- [Установка Docker на Windows](https://docs.docker.com/docker-for-windows/install/)
+- [Установка Docker на macOS](https://docs.docker.com/docker-for-mac/install/)
+- [Установка Docker на Linux](https://docs.docker.com/engine/install/)
+
+### Установка Docker Compose
+
+Следуйте официальной документации для установки Docker Compose:
+- [Инструкция по установке Docker Compose](https://docs.docker.com/compose/install/)
+
+## Переменные окружения
+
+Создайте файл `.env` в корневой директории проекта и добавьте следующие переменные:
+
+```plaintext
+POSTGRES_USER=your_postgres_user
+POSTGRES_PASSWORD=your_postgres_password
+POSTGRES_DB=habits
+PGPORT=5433
+
+Команда для сборки контейнера
+docker-compose up -d --build   
+
+Команда для входа в контейнер db
+docker-compose exec db psql -U postgres  
+
+Создать БД
+create database habits;
+выйти из БД
+/q
+
 
 
