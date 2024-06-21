@@ -17,10 +17,11 @@ from dotenv import load_dotenv
 # .env
 load_dotenv()
 SECRET_KEY_ENV = os.environ.get("SECRET_KEY")
-PASSWORD_BD_ENV = os.environ.get("PASSWORD_BD")
-USER_BD_ENV = os.environ.get("USER_BD")
-NAME_BD_ENV = os.environ.get("NAME_BD")
-PORT_DB_ENV = os.environ.get("PORT_BD")
+PASSWORD_BD_ENV = os.environ.get("POSTGRES_PASSWORD")
+USER_BD_ENV = os.environ.get("POSTGRES_USER")
+NAME_BD_ENV = os.environ.get("POSTGRES_BD")
+PORT_DB_ENV = os.environ.get("POSTGRES_PORT")
+HOST_DB_ENV = os.environ.get("POSTGRES_HOST")
 EMAIL_SUPERUSER_ENV = os.environ.get('EMAIL_SUPERUSER')
 PASSWORD_SUPERUSER_ENV = os.environ.get('PASSWORD_SUPERUSER')
 CELERY_BROKER_URL_ENV = os.environ.get("CELERY_BROKER_URL")
@@ -102,6 +103,7 @@ DATABASES = {
         'USER': USER_BD_ENV,
         'PORT': PORT_DB_ENV,
         'PASSWORD': PASSWORD_BD_ENV,
+        'HOST': HOST_DB_ENV
     }
 }
 

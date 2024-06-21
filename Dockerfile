@@ -1,14 +1,17 @@
 FROM python:3.11
 
+
+RUN pip install --upgrade pip && pip install poetry
+
+ENV POETRY_VERSION=1.1.12
+
 WORKDIR / code
 
-RUN pip install --upgrade pip \
-    && pip install poetry
+COPY pyproject.toml poetry.lock ./
 
-COPY /pyproject.toml poetry.lock /
-
-RUN poetry install
+RUN poetry config virtualenvs.create true && poetry install --no-root --no-interaction
 
 COPY . .
 
-CMD ["sh", "-c", "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"]
+
+
